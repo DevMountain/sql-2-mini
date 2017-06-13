@@ -222,22 +222,29 @@ SELECT * FROM Employee WHERE EmployeeId = 1;
 
 ## Querying a null value
 
-Sometimes you want to know when there is no value.  What if wanted to know all customers that purchased for themselves and not a company.   
+### Summary
 
-If you try this what do you see?
+Sometimes you want to know when there is no value. For example, let's use the `Customer` table to figure out which customers do not have a company.
 
+### Instructions
+
+* Get all customers from the `Customer` table who do not have a company.
+
+### Solution
+
+<details>
+
+<summary> <code> No Company Customers </code> </summary>
+
+```sql
+SELECT * from Customer WHERE Company IS null;
 ```
-select * from customer where company = null
-```
 
-This, this works: 
-
-```
-select * from customer where company is null
-```
-
+</details>
 
 ## Group by
+
+### Summary
 
 How many albums does each artist have?  We could count manually, but no!  Let's use a group by to do some aggregate counts for us.
 
