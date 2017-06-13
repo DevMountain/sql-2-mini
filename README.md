@@ -187,15 +187,40 @@ WHERE GenreId IN ( SELECT GenreId FROM Genre WHERE Name = 'Jazz' OR Name = 'Blue
 
 ## Setting values to null
 
-### Summary
+### Instructions
 
-Sometimes we want to remove values.  Try this then select on the Employee table and look at the first Employee
+* Update `Phone` on the `Employee` table to `null` where the `EmployeeId` is `1`.
+* Query the `Employee` table to get the employee you just updated.
 
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> Setting to null </code> </summary>
+
+```sql
+UPDATE Employee SET Phone = null WHERE EmployeeId = 1;
 ```
-update Employee set Phone=null where EmployeeId=1
+
+</details>
+
+<details>
+
+<summary> <code> Query the Employee Table </code> </summary>
+
+```sql
+SELECT * FROM Employee WHERE EmployeeId = 1;
 ```
 
-## Query a null value
+</details>
+
+</details>
+
+## Querying a null value
 
 Sometimes you want to know when there is no value.  What if wanted to know all customers that purchased for themselves and not a company.   
 
