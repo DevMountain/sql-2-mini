@@ -170,7 +170,7 @@ The next way to use a primary key is with a nested query/sub-select statement. B
 
 ### Instructions
 
-* Use a sub-select statement to get all information from the `Track` table where the `GenreId` is either `Jazz` or `Blues`.
+* Use a sub-select statement to get all tracks from the `Track` table where the `GenreId` is either `Jazz` or `Blues`.
 
 ### Solution
 
