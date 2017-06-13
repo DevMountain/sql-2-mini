@@ -62,15 +62,44 @@ SELECT * FROM Movie;
 
 ## Foreign Keys - Existing Table
 
-We can also add a foreign key to an existing table. Let's add one to our movies table that references genre on genreId
+### Summary
 
+We can also add a foreign key to an existing table. Let's add one to our `Movie` table that references `GenreId` on the `Genre` table.
+
+### Instructions
+
+* Add a new column called `GenreId` that references `GenreId` on the `Genre` table.
+* Query the `Movie` table to see your entry.
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> Add Foreign Key </code> </summary>
+
+```sql
+ALTER TABLE Movie ADD COLUMN GenreId INTEGER REFERENCES Genre(GenreId);
 ```
-ALTER TABLE movies ADD COLUMN genreId INTEGER REFERENCES Genre(GenreId);
+
+</details>
+
+<details>
+
+<summary> <code> Query Movie Table </code> </summary>
+
+```sql
+SELECT * FROM Movie;
 ```
 
-Query your movies table and you will see that the same row is now returned with an extra column.
+</details>
 
-## Update Rows
+</details>
+
+## Updating Rows
 
 We don't want to leave genre null so let's add a value using the update command.  With an update command you always want to use a where clause (if you don't you will overwrite data on all records).
 
