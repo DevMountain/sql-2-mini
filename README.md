@@ -1,19 +1,19 @@
-# intermediate-sql-queries
+<img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-For today we will be practicing inserting and querying data using SQL.
+# Project Summary
 
-Here is a website that will let us write queries to interact with some data.  [http://jxs.me/chinook-web/](http://jxs.me/chinook-web/)
+In this project, we'll continue to use <a href="http://jxs.me/chinook-web/">Chinook</a> to create more intermediate SQL queries.
 
-On the left are the Tables with their fields.  The right is where we will be writing our queries.  The bottom is where we will see our results.  
+## Foreign Keys
 
-## Add foreign key to new table
+### Summary
 
-When creating tables we can specify a column as having a foreign key.
+When creating tables we can specify a column as having a foreign key. The datatype of our column must match the datatype of the column we are linking to. The most common foriegn key is a primary key which is usually an integer.
 
-The datatype of our column must match the datatype of the column we are linking to (Usually a primary key which is usually an integer).
+### Instructions 
 
-Create a new table called movies with an id, title and mediaTypeId.
-Make mediaTypeId a foreign key to the MediaType table on the MediaTypeId column. 
+* Create a new table called `Movie` with an `ID`, `Title`, and `MediaTypeId`.
+* Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table.
 
 ```
 CREATE TABLE movies (
@@ -133,3 +133,15 @@ Then replace the `select *` with a `delete` and you're safely deleting rows.
 ```
 delete from customer where fax is not null
 ```
+
+## Contributions
+
+If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.
+
+## Copyright
+
+© DevMountain LLC, 2017. Unauthorized use and/or duplication of this material without express and written permission from DevMountain, LLC is strictly prohibited. Excerpts and links may be used, provided that full and clear credit is given to DevMountain with appropriate and specific direction to the original content.
+
+<p align="center">
+<img src="https://devmounta.in/img/logowhiteblue.png" width="250">
+</p>
