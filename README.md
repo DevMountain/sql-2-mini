@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project, we'll continue to use <a href="http://jxs.me/chinook-web/">Chinook</a> to create more intermediate SQL queries.
+In this project, we'll continue to use <a href="http://jxs.me/chinook-web/" target="_blank">Chinook</a> to create more intermediate SQL queries.
 
 ## Foreign Keys
 
