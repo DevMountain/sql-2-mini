@@ -13,7 +13,7 @@ When creating tables we can specify a column as having a foreign key. The dataty
 ### Instructions 
 
 * Create a new table called `Movie` with an `ID`, `Title`, and `MediaTypeId`.
-  * Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table ( this table is already created ).
+  * Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table.
 * Add a new entry into the `Movie` table with a `Title` and `MediaTypeId`.
 * Query the `Movie` table to get your entry.
 
