@@ -142,12 +142,28 @@ SELECT * FROM Movie;
 
 ### Summary
 
-Now that we know how to make foreign keys and change data let's do some practice queries.  The simplest way to use a foreign key is via a join statement. 
+Now that we know how to make foreign keys and change data, let's do some practice queries. The simplest way to use a foreign key is via a join statement. 
 
-Let's join the artist and album tables so we can list the artist name next to each album name.
+### Instructions
+
+* Join the `Artist` and `Album` tables to list out the Artist name and Album name.
+
+### Solution
+
+<details>
+
+<summary> <code> Artist and Album Join </code> </summary>
+
+```sql
+SELECT a.title, ar.Name 
+FROM Album a 
+JOIN Artist ar ON a.ArtistId = ar.ArtistId;
+```
+
+</details>
 
 ```
-select a.title, ar.Name from album a join artist ar on a.ArtistId=ar.ArtistId
+
 ```
 
 ## Use a nested query/sub-select
