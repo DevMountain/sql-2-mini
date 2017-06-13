@@ -325,6 +325,7 @@ SELECT * FROM Customer WHERE Fax IS null;
 <summary> <code> Delete null fax Customers </code> </summary>
 
 ```sql
+/* The delete won't work since they are children using a foreign key. However, if there wasn't a foreign key, you would successfully delete all Customers WHERE Fax is null */
 DELETE FROM Customers WHERE Fax IS null;
 ```
 
