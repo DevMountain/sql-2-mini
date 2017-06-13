@@ -271,13 +271,27 @@ GROUP BY ar.artistId;
 
 Modify the solution to order the album count by largest to smallest.
 
-## Use Distinct
+## Distinct
 
-We have hundreds of customers and want to know which countries our customers come from, but no duplicates!
+### Summary
 
+Distinct is great if you want to get a dataset with no duplicates. 
+
+### Instructions
+
+* Get all countries from the `Customer` table with no duplicates.
+
+### Solution
+
+<details>
+
+<summary> <code> No Duplicate Countries </code> </summary>
+
+```sql
+SELECT DISTINCT Country FROM Customer;
 ```
-select distinct country from customer
-```
+
+</details>
 
 ## Delete Rows
 
