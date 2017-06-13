@@ -108,8 +108,13 @@ We don't want to leave the `GenreId` equal to `null` so let's add a value using 
 ### Instructions
 
 * Update the first entry in the `Movie` table to a `GenreId` of `22`.
+* Query the `Movie` table to see your entry.
 
 ### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
 
 <details>
 
@@ -118,6 +123,18 @@ We don't want to leave the `GenreId` equal to `null` so let's add a value using 
 ```sql
 UPDATE Movie SET GenreId=22 WHERE id=1;
 ```
+
+</details>
+
+<details>
+
+<summary> <code> Query Movie Table </code> </summary>
+
+```sql
+SELECT * FROM Movie;
+```
+
+</details>
 
 </details>
 
