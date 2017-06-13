@@ -4,7 +4,7 @@
 
 In this project, we'll continue to use <a href="http://jxs.me/chinook-web/" target="_blank">Chinook</a> to create more intermediate SQL queries.
 
-## Foreign Keys
+## Foreign Keys - New Table
 
 ### Summary
 
@@ -13,26 +13,54 @@ When creating tables we can specify a column as having a foreign key. The dataty
 ### Instructions 
 
 * Create a new table called `Movie` with an `ID`, `Title`, and `MediaTypeId`.
-* Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table.
+  * Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table ( this table is already created ).
+* Add a new entry into the `Movie` table with a `Title` and `MediaTypeId`.
+* Query the `Movie` table to get your entry.
 
-```
-CREATE TABLE movies (
-    id INTEGER PRIMARY KEY,
-    title TEXT,
-  	mediaTypeId INTEGER, 
-    FOREIGN KEY(mediaTypeId) REFERENCES MediaType(MediaTypeId)
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> Create Movie Table </code> </summary>
+
+```sql
+CREATE TABLE Movie (
+  ID INTEGER PRIMARY KEY,
+  Title TEXT,
+  MediaTypeId INTEGER, 
+  FOREIGN KEY(MediaTypeId) REFERENCES MediaType(MediaTypeId)
 );
 ```
 
-Test this by adding a movie with a title and a mediaTypeId.
+</details>
 
+<details>
+
+<summary> <code> Add Movie </code> </summary>
+
+```sql
+INSERT INTO Movie ( Title, MediaTypeId ) VALUES ( "Aladdin", 3 );
 ```
-insert into movies (title, mediaTypeId) values ("Aladdin", 3)
+
+</details>
+
+<details>
+
+<summary> <code> Query Movie Table </code> </summary>
+
+```sql
+SELECT * FROM Movie;
 ```
 
-Now query the movies table using a simple select statement and you should see your movie.
+</details>
 
-## Add foreign key to existing table
+</details>
+
+## Foreign Keys - Existing Table
 
 We can also add a foreign key to an existing table. Let's add one to our movies table that references genre on genreId
 
