@@ -246,16 +246,30 @@ SELECT * from Customer WHERE Company IS null;
 
 ### Summary
 
-How many albums does each artist have?  We could count manually, but no!  Let's use a group by to do some aggregate counts for us.
+How many albums does each artist have? We could count manually, but no! Group by allows us to do aggregate counts.
 
-Select all artist ids, artist names, and a count of how many albums they have.
+### Instructions
 
+* Select all artist ids, artist names, and count how many albums they have.
+
+### Solution
+
+<details>
+
+<summary> <code> Group By </code> </summary>
+
+```sql
+SELECT ar.artistId, ar.name, count(*) 
+FROM Artist ar
+JOIN Album a ON ar.ArtistId = a.ArtistId 
+GROUP BY ar.artistId;
 ```
-select ar.artistId, ar.name, count(*) from artist ar join album a on ar.ArtistId=a.ArtistId group by ar.artistId
-```
 
-#### challenge
-Order this by album count, largest first
+</details>
+
+### Challenge
+
+Modify the solution to order the album count by largest to smallest.
 
 ## Use Distinct
 
