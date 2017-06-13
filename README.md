@@ -295,17 +295,42 @@ SELECT DISTINCT Country FROM Customer;
 
 ## Delete Rows
 
-Always do a select before a delete to make sure you get back exactly what you want and only what you want to delete!
+### Summary
 
-```
-select * from customer where fax is not null
+Deleting rows can be dangerous if you are not cautious. Always do a select of what you plan to delete to make sure that you are going to delete the correct records.
+
+### Instructions
+
+* Select all records from the `Customer` table where fax is null;
+* Delete all records from the `Customer` table where fax is null;
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> All null fax numbers </code> </summary>
+
+```sql
+SELECT * FROM Customer WHERE Fax IS null;
 ```
 
-Then replace the `select *` with a `delete` and you're safely deleting rows.
+</details>
 
+<details>
+
+<summary> <code> Delete null fax Customers </code> </summary>
+
+```sql
+DELETE FROM Customers WHERE Fax IS null;
 ```
-delete from customer where fax is not null
-```
+
+</details>
+
+</details>
 
 ## Contributions
 
