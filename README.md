@@ -162,11 +162,7 @@ JOIN Artist ar ON a.ArtistId = ar.ArtistId;
 
 </details>
 
-```
-
-```
-
-## Use a nested query/sub-select
+## Using nested queries/sub-selects
 
 The next way to use a primary key is with a nested query/sub-select statement.  By using parenthesis we can do a select inside of a select.  This is really effective when you have a foreign key link between two tables because now we can filter our main query by criteria on a referenced table.
 
