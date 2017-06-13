@@ -101,13 +101,29 @@ SELECT * FROM Movie;
 
 ## Updating Rows
 
-We don't want to leave genre null so let's add a value using the update command.  With an update command you always want to use a where clause (if you don't you will overwrite data on all records).
+### Summary
 
-```
-update movies set genreId=22 where id=1
+We don't want to leave the `GenreId` equal to `null` so let's add a value using the update command. With an update command you always want to use a `WHERE` clause. If you don't you will overwrite data on all records.
+
+### Instructions
+
+* Update the first entry in the `Movie` table to a `GenreId` of `22`.
+
+### Solution
+
+<details>
+
+<summary> <code> Updating First Entry </code> </summary>
+
+```sql
+UPDATE Movie SET GenreId=22 WHERE id=1;
 ```
 
-## Use a join
+</details>
+
+## Using Joins
+
+### Summary
 
 Now that we know how to make foreign keys and change data let's do some practice queries.  The simplest way to use a foreign key is via a join statement. 
 
