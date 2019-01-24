@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project, we'll continue to use <a href="http://jxs.me/chinook-web/" target="_blank">Chinook</a> to create more intermediate SQL queries.
+In this project, we'll continue to use <a href="https://postgres.devmountain.com/" target="_blank">postgres.devmountain.com</a> to create more intermediate SQL queries.
 
 ## Foreign Keys - New Table
 
@@ -12,10 +12,10 @@ When creating tables we can specify a column as having a foreign key. The dataty
 
 ### Instructions 
 
-* Create a new table called `Movie` with an `ID`, `Title`, and `MediaTypeId`.
-  * Make `MediaTypeId` a foreign key to the `MediaTypeId` column on the `MediaType` table.
-* Add a new entry into the `Movie` table with a `Title` and `MediaTypeId`.
-* Query the `Movie` table to get your entry.
+* Create a new table called `movie` with a `movie_id`, `title`, and `media_type_id`.
+  * Make `media_type_id` a foreign key to the `media_type_id` column on the `media_type` table.
+* Add a new entry into the `movie` table with a `title` and `media_type_id`.
+* Query the `movie` table to get your entry.
 
 ### Solution
 
@@ -25,14 +25,14 @@ When creating tables we can specify a column as having a foreign key. The dataty
 
 <details>
 
-<summary> <code> Create Movie Table </code> </summary>
+<summary> <code> Create movie table </code> </summary>
 
 ```sql
-CREATE TABLE Movie (
-  ID INTEGER PRIMARY KEY,
-  Title TEXT,
-  MediaTypeId INTEGER, 
-  FOREIGN KEY(MediaTypeId) REFERENCES MediaType(MediaTypeId)
+CREATE TABLE movie (
+  movie_id SERIAL,
+  title TEXT,
+  media_type_id INTEGER, 
+  FOREIGN KEY(media_type_id) REFERENCES media_type(media_type_id)
 );
 ```
 
@@ -40,20 +40,20 @@ CREATE TABLE Movie (
 
 <details>
 
-<summary> <code> Add Movie </code> </summary>
+<summary> <code> Add movie </code> </summary>
 
 ```sql
-INSERT INTO Movie ( Title, MediaTypeId ) VALUES ( "Aladdin", 3 );
+INSERT INTO movie ( title, media_type_id ) VALUES ( 'Aladdin', 3 );
 ```
 
 </details>
 
 <details>
 
-<summary> <code> Query Movie Table </code> </summary>
+<summary> <code> Query movie Table </code> </summary>
 
 ```sql
-SELECT * FROM Movie;
+SELECT * FROM movie;
 ```
 
 </details>
@@ -64,12 +64,12 @@ SELECT * FROM Movie;
 
 ### Summary
 
-We can also add a foreign key to an existing table. Let's add one to our `Movie` table that references `GenreId` on the `Genre` table.
+We can also add a foreign key to an existing table. Let's add one to our `movie` table that references `genre_id` on the `genre` table.
 
 ### Instructions
 
-* Add a new column called `GenreId` that references `GenreId` on the `Genre` table.
-* Query the `Movie` table to see your entry.
+* Add a new column called `genre_id` that references `genre_id` on the `genre` table.
+* Query the `movie` table to see your entry.
 
 ### Solution
 
@@ -82,17 +82,17 @@ We can also add a foreign key to an existing table. Let's add one to our `Movie`
 <summary> <code> Add Foreign Key </code> </summary>
 
 ```sql
-ALTER TABLE Movie ADD COLUMN GenreId INTEGER REFERENCES Genre(GenreId);
+ALTER TABLE movie ADD COLUMN genre_id INTEGER REFERENCES genre(genre_id);
 ```
 
 </details>
 
 <details>
 
-<summary> <code> Query Movie Table </code> </summary>
+<summary> <code> Query movie Table </code> </summary>
 
 ```sql
-SELECT * FROM Movie;
+SELECT * FROM movie;
 ```
 
 </details>
@@ -103,12 +103,12 @@ SELECT * FROM Movie;
 
 ### Summary
 
-We don't want to leave the `GenreId` equal to `null` so let's add a value using the update command. With an update command you always want to use a `WHERE` clause. If you don't you will overwrite data on all records.
+We don't want to leave the `genre_id` equal to `null` so let's add a value using the update command. With an update command you always want to use a `WHERE` clause. If you don't you will overwrite data on all records.
 
 ### Instructions
 
-* Update the first entry in the `Movie` table to a `GenreId` of `22`.
-* Query the `Movie` table to see your entry.
+* Update the first entry in the `movie` table to a `genre_id` of `22`.
+* Query the `movie` table to see your entry.
 
 ### Solution
 
@@ -121,17 +121,17 @@ We don't want to leave the `GenreId` equal to `null` so let's add a value using 
 <summary> <code> Updating First Entry </code> </summary>
 
 ```sql
-UPDATE Movie SET GenreId=22 WHERE id=1;
+UPDATE movie SET genre_id=22 WHERE movie_id=1;
 ```
 
 </details>
 
 <details>
 
-<summary> <code> Query Movie Table </code> </summary>
+<summary> <code> Query movie Table </code> </summary>
 
 ```sql
-SELECT * FROM Movie;
+SELECT * FROM movie;
 ```
 
 </details>
@@ -146,18 +146,18 @@ Now that we know how to make foreign keys and change data, let's do some practic
 
 ### Instructions
 
-* Join the `Artist` and `Album` tables to list out the Artist name and Album name.
+* Join the `artist` and `album` tables to list out the artist name and album name.
 
 ### Solution
 
 <details>
 
-<summary> <code> Artist and Album Join </code> </summary>
+<summary> <code> artist and album Join </code> </summary>
 
 ```sql
-SELECT a.title, ar.Name 
-FROM Album a 
-JOIN Artist ar ON a.ArtistId = ar.ArtistId;
+SELECT a.title, ar.name 
+FROM album a 
+JOIN artist ar ON a.artist_id = ar.artist_id;
 ```
 
 </details>
@@ -170,7 +170,7 @@ The next way to use a primary key is with a nested query/sub-select statement. B
 
 ### Instructions
 
-* Use a sub-select statement to get all tracks from the `Track` table where the `GenreId` is either `Jazz` or `Blues`.
+* Use a sub-select statement to get all tracks from the `Track` table where the `genre_id` is either `Jazz` or `Blues`.
 
 ### Solution
 
@@ -180,7 +180,7 @@ The next way to use a primary key is with a nested query/sub-select statement. B
 
 ```sql
 SELECT * FROM Track 
-WHERE GenreId IN ( SELECT GenreId FROM Genre WHERE Name = 'Jazz' OR Name = 'Blues' );
+WHERE genre_id IN ( SELECT genre_id FROM genre WHERE name = 'Jazz' OR name = 'Blues' );
 ```
 
 </details>
@@ -224,20 +224,20 @@ SELECT * FROM Employee WHERE EmployeeId = 1;
 
 ### Summary
 
-Sometimes you want to know when there is no value. For example, let's use the `Customer` table to figure out which customers do not have a company.
+Sometimes you want to know when there is no value. For example, let's use the `customer` table to figure out which customers do not have a company.
 
 ### Instructions
 
-* Get all customers from the `Customer` table who do not have a company.
+* Get all customers from the `customer` table who do not have a company.
 
 ### Solution
 
 <details>
 
-<summary> <code> No Company Customers </code> </summary>
+<summary> <code> No Company customers </code> </summary>
 
 ```sql
-SELECT * from Customer WHERE Company IS null;
+SELECT * from customer WHERE Company IS null;
 ```
 
 </details>
@@ -259,10 +259,10 @@ How many albums does each artist have? We could count manually, but no! Group by
 <summary> <code> Group By </code> </summary>
 
 ```sql
-SELECT ar.artistId, ar.name, count(*) 
-FROM Artist ar
-JOIN Album a ON ar.ArtistId = a.ArtistId 
-GROUP BY ar.artistId;
+SELECT ar.artist_id, ar.name, COUNT(*) 
+FROM artist ar
+JOIN album a ON ar.artist_id = a.artist_id 
+GROUP BY ar.artist_id;
 ```
 
 </details>
@@ -279,7 +279,7 @@ Distinct is great if you want to get a dataset with no duplicates.
 
 ### Instructions
 
-* Get all countries from the `Customer` table with no duplicates.
+* Get all countries from the `customer` table with no duplicates.
 
 ### Solution
 
@@ -288,7 +288,7 @@ Distinct is great if you want to get a dataset with no duplicates.
 <summary> <code> No Duplicate Countries </code> </summary>
 
 ```sql
-SELECT DISTINCT Country FROM Customer;
+SELECT DISTINCT country FROM customer;
 ```
 
 </details>
@@ -301,8 +301,8 @@ Deleting rows can be dangerous if you are not cautious. Always do a select of wh
 
 ### Instructions
 
-* Select all records from the `Customer` table where fax is null;
-* Delete all records from the `Customer` table where fax is null;
+* Select all records from the `customer` table where fax is null;
+* Delete all records from the `customer` table where fax is null;
 
 ### Solution
 
@@ -315,18 +315,18 @@ Deleting rows can be dangerous if you are not cautious. Always do a select of wh
 <summary> <code> All null fax numbers </code> </summary>
 
 ```sql
-SELECT * FROM Customer WHERE Fax IS null;
+SELECT * FROM customer WHERE fax IS null;
 ```
 
 </details>
 
 <details>
 
-<summary> <code> Delete null fax Customers </code> </summary>
+<summary> <code> Delete null fax customers </code> </summary>
 
 ```sql
-/* The delete won't work since they are children using a foreign key. However, if there wasn't a foreign key, you would successfully delete all Customers WHERE Fax is null */
-DELETE FROM Customers WHERE Fax IS null;
+/* The delete won't work since they are children using a foreign key. However, if there wasn't a foreign key, you would successfully delete all customers WHERE fax is null */
+DELETE FROM customer WHERE fax IS null;
 ```
 
 </details>
