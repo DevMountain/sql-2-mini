@@ -8,7 +8,7 @@ In this project, we'll continue to use <a href="https://postgres.devmountain.com
 
 ### Summary
 
-When creating tables we can specify a column as having a foreign key. The datatype of our column must match the datatype of the column we are linking to. The most common foriegn key is a primary key which is usually an integer.
+When creating tables we can specify a column as having a foreign key. The datatype of our column must match the datatype of the column we are linking to. The most common foreign key is a primary key which is usually an integer.
 
 ### Instructions 
 
